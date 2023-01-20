@@ -56,6 +56,31 @@ To potentially close this gap, this document proposes a new NDP option which
 can be used in Router Solicitation (RS) messages.
 This enables IPv6 nodes to emit their MUD URLs more easily when using SLAAC.
 
+# Option Format
+
+~~~~
+0                   1
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Type     |    Length   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             |
++          MUDstring          |
+|                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+Fields:
+
+Type:                   TBD1
+
+Length:                 8-bit unsigned integer. Contains the
+                        length of the MUDstring in octets.
+
+MUDstring:              String containing a MUD URL as defined
+                        in section 10 of {{!RFC8520}}.
+                        MUST NOT exceed 254 Bytes.
+~~~~
+{: #fig-ndp-mud title='MUD URL Option' align="left"}
 
 
 # Conventions and Definitions
@@ -70,8 +95,13 @@ TODO Security
 
 # IANA Considerations
 
-This document has no IANA actions.
+IANA is requested to assign the following new IPv6 Neighbor Discovery Option
+type in the "IPv6 Neighbor Discovery Option Formats" sub-registry under the
+"Internet Control Message Protocol version 6 (ICMPv6) Parameters" registry.
 
+| Type |   Description  |    Reference   |
+|:----:|:--------------:|:--------------:|
+| TBA1 | MUD URL Option | [ThisDocument] |
 
 --- back
 
