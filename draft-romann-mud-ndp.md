@@ -120,7 +120,7 @@ document.
 
 Since NDP is not a secure protocol, MUD URLs can get compromised if an
 attacker performs a man-in-the-middle attack.
-To minimize this risk, SEcure Neighbor Discovery (SEND) {{!RF3971}} SHOULD be
+To minimize this risk, SEcure Neighbor Discovery (SEND) {{!RFC3971}} SHOULD be
 used in order to assert the integrity of the emitted MUD URLs.
 
 TODO: Add more security considerations
