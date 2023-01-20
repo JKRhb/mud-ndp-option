@@ -1184,14 +1184,14 @@ This information can be used to reduce the attack surface of a network, e.g.
 by applying a corresponding firewall configuration that prohibits all traffic.
 MUD nodes are supposed to indicate which MUD file describes them by emitting
 a URL that is processed by a so-called MUD manager.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Devices that operate in Internet of Things (IoT) primarily rely on IPv6 due to
-the scarcity of IPv4 addresses vis-a-vis a rapidly growing number of devices
+<p id="section-1-3">Nodes that operate in the Internet of Things (IoT) primarily rely on IPv6 due
+to the scarcity of IPv4 addresses vis-a-vis a rapidly growing number of devices
 and the use of IPv6 in constrained environments via protocols such as 6LoWPAN.
 Although <span>[<a href="#RFC8520" class="cite xref">RFC8520</a>]</span> specifies a DHCPv6 <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> option that can be used by
-IPv6 devices for emitting their MUD URL, IPv6 addresses are most commonly
-assigned via Stateless Address Autoconfiguration (SLAAC) <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span> using the
-Neighbor Discovery Protocol (NDP) <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and not via DHCPv6.
-This renders many IoT devices uncapable of using a standardized way for
+IPv6 devices for emitting their MUD URL, IPv6 addresses are most commonly not
+assigned via DHCPv6, but via Stateless Address Autoconfiguration (SLAAC)
+<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span> using the Neighbor Discovery Protocol (NDP) <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>.
+This renders many IoT devices incapable of using a standardized way for
 emitting MUD URLs if they are not employing an out-of-band solution such as the
 emission via a QR code <span>[<a href="#RFC9238" class="cite xref">RFC9238</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">To potentially close this gap, this document proposes a new NDP option which

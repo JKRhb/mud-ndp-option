@@ -81,17 +81,17 @@ Table of Contents
    indicate which MUD file describes them by emitting a URL that is
    processed by a so-called MUD manager.
 
-   Devices that operate in Internet of Things (IoT) primarily rely on
+   Nodes that operate in the Internet of Things (IoT) primarily rely on
    IPv6 due to the scarcity of IPv4 addresses vis-a-vis a rapidly
    growing number of devices and the use of IPv6 in constrained
    environments via protocols such as 6LoWPAN.  Although [RFC8520]
    specifies a DHCPv6 [RFC8415] option that can be used by IPv6 devices
-   for emitting their MUD URL, IPv6 addresses are most commonly assigned
-   via Stateless Address Autoconfiguration (SLAAC) [RFC4862] using the
-   Neighbor Discovery Protocol (NDP) [RFC4861] and not via DHCPv6.  This
-   renders many IoT devices uncapable of using a standardized way for
-   emitting MUD URLs if they are not employing an out-of-band solution
-   such as the emission via a QR code [RFC9238].
+   for emitting their MUD URL, IPv6 addresses are most commonly not
+   assigned via DHCPv6, but via Stateless Address Autoconfiguration
+   (SLAAC) [RFC4862] using the Neighbor Discovery Protocol (NDP)
+   [RFC4861].  This renders many IoT devices incapable of using a
+   standardized way for emitting MUD URLs if they are not employing an
+   out-of-band solution such as the emission via a QR code [RFC9238].
 
    To potentially close this gap, this document proposes a new NDP
    option which can be used in Router Solicitation (RS) messages.  This
