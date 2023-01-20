@@ -56,6 +56,9 @@ To potentially close this gap, this document proposes a new NDP option which
 can be used in Router Solicitation (RS) messages.
 This enables IPv6 nodes to emit their MUD URLs more easily when using SLAAC.
 
+# Conventions and Definitions
+
+{::boilerplate bcp14-tagged}
 # Option Format
 
 ~~~~
@@ -81,11 +84,6 @@ MUDstring:              String containing a MUD URL as defined
                         MUST NOT exceed 254 Bytes.
 ~~~~
 {: #fig-ndp-mud title='MUD URL Option' align="left"}
-
-
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 
 # Security Considerations
