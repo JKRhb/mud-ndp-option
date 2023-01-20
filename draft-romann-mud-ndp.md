@@ -84,7 +84,7 @@ Length:                 8-bit unsigned integer. Contains the
                         length of the MUDstring in octets.
 
 MUDstring:              String containing a MUD URL as defined
-                        in section 10 of {{!RFC8520}}.
+                        in section 10 of RFC 8520.
                         MUST NOT exceed 254 Bytes.
 ~~~~
 {: #fig-ndp-mud title='MUD URL Option' align="left"}
