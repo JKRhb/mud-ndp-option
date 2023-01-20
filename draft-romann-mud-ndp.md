@@ -22,8 +22,10 @@ informative:
 
 --- abstract
 
-TODO Abstract
-
+The document specifies a new IPv6 Router Solicitation option
+for emitting Manufacturer Usage Descriptions (MUDs, RFC 8520) URLs.
+This simplifies the integration of MUD into environments that primarily use
+IPv6.
 
 --- middle
 
