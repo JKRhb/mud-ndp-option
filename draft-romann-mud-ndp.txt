@@ -60,12 +60,14 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Option Format
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   3.  Node Behavior
+   4.  Router Behavior
+   5.  Option Format
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Acknowledgments
    Author's Address
 
@@ -109,7 +111,29 @@ Table of Contents
    This document makes use of the terms defined in [RFC8520]].  The
    following additional terms are used: TBD
 
-3.  Option Format
+3.  Node Behavior
+
+   Nodes that are described by a MUD file MAY use the NDP option
+   specified in Section 5 for emitting a MUD URL in Router
+   Solicitations.  Corresponding with Section 10.1 of [RFC8520], this
+   option MUST NOT be repeated.  Furthermore, if the node also uses
+   DHCPv4 or DHCPv6 to emit its MUD URL, the MUD URL options MUST
+   contain the same value.
+
+4.  Router Behavior
+
+   A router that receives an RS containing a MUD URL option MAY ignore
+   it or forward its extracted value to interested entities, such as an
+   external MUD manager.  Routers SHOULD inform these entities about any
+   changes to a node's state and their address configuration.
+
+5.  Option Format
+
+   Figure 1 specifies the layout of the MUD NDP Option.  The option MUST
+   only be used in Router Solicitation messages and follows the format
+   defined for DHCP and DHCPv6 in [RFC8520].
+
+   TODO: Also consider 6LoWPAN
 
    0                   1
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
@@ -134,11 +158,11 @@ Table of Contents
 
                           Figure 1: MUD URL Option
 
-4.  Security Considerations
+6.  Security Considerations
 
    TODO Security
 
-5.  IANA Considerations
+7.  IANA Considerations
 
    IANA is requested to assign the following new IPv6 Neighbor Discovery
    Option type in the "IPv6 Neighbor Discovery Option Formats" sub-
@@ -153,9 +177,9 @@ Table of Contents
 
                        Table 1: MUD URL NDP Option
 
-6.  References
+8.  References
 
-6.1.  Normative References
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -176,7 +200,7 @@ Table of Contents
               DOI 10.17487/RFC8520, March 2019,
               <https://www.rfc-editor.org/rfc/rfc8520>.
 
-6.2.  Informative References
+8.2.  Informative References
 
    [RFC4862]  Thomson, S., Narten, T., and T. Jinmei, "IPv6 Stateless
               Address Autoconfiguration", RFC 4862,
