@@ -59,6 +59,10 @@ This enables IPv6 nodes to emit their MUD URLs more easily when using SLAAC.
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
+
+This document makes use of the terms defined in {{!RFC8520}}]. The
+   following additional terms are used: TBD
+
 # Option Format
 
 ~~~~
