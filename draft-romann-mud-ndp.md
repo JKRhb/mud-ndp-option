@@ -29,9 +29,33 @@ IPv6.
 
 --- middle
 
+Note: Everything here is still WIP.
+
 # Introduction
 
-TODO Introduction
+Manufacturer Usage Descriptions (MUDs) {{!RFC8520}} can be used to describe
+the kind of network access a device needs in order to properly function.
+This information can be used to reduce the attack surface of a network, e.g.
+by applying a corresponding firewall configuration that prohibits all traffic.
+MUD nodes are supposed to indicate which MUD file describes them by emitting
+a URL that is processed by a so-called MUD manager.
+
+Devices that operate in Internet of Things (IoT) primarily rely on IPv6 due to
+the scarcity of IPv4 addresses vis-à-vis a rapidly growing number of devices
+and the use of IPv6 in constrained environments via protocols such as 6LoWPAN.
+Although {{RFC8520}} specifies a DHCPv6 {{RFC8415}} option that can be used by
+IPv6 devices for emitting their MUD URL, IPv6 addresses are most commonly
+assigned via Stateless Address Autoconfiguration (SLAAC) {{RFC4862}} using the
+Neighbor Discovery Protocol (NDP) {{!RFC4861}} and not via DHCPv6.
+This renders many IoT devices uncapable of using a standardized way for
+emitting MUD URLs if they are not employing an out-of-band solution such as the
+emission via a QR code {{RFC9238}}.
+<!-- TODO: Also mention LLDP and X.509 certificates -->
+
+To potentially close this gap, this document proposes a new NDP option which
+can be used in Router Solicitation (RS) messages.
+This enables IPv6 nodes to emit their MUD URLs more easily when using SLAAC.
+
 
 
 # Conventions and Definitions
