@@ -1,0 +1,203 @@
+
+
+
+
+Network Working Group                                          J. Romann
+Internet-Draft                                      University of Bremen
+Intended status: Standards Track                         20 January 2023
+Expires: 24 July 2023
+
+
+Router Solicitation Option for Manufacturer Usage Description (MUD) URLs
+                      draft-romann-mud-ndp-latest
+
+Abstract
+
+   The document specifies a new IPv6 Router Solicitation option for
+   emitting Manufacturer Usage Descriptions (MUDs, RFC 8520) URLs.  This
+   simplifies the integration of MUD into environments that primarily
+   use IPv6.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/JKRhb/mud-ndp-option.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 24 July 2023.
+
+Copyright Notice
+
+   Copyright (c) 2023 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Option Format
+   3.  Conventions and Definitions
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   Note: Everything here is still WIP.
+
+   Manufacturer Usage Descriptions (MUDs) [RFC8520] can be used to
+   describe the kind of network access a device needs in order to
+   properly function.  This information can be used to reduce the attack
+   surface of a network, e.g. by applying a corresponding firewall
+   configuration that prohibits all traffic.  MUD nodes are supposed to
+   indicate which MUD file describes them by emitting a URL that is
+   processed by a so-called MUD manager.
+
+   Devices that operate in Internet of Things (IoT) primarily rely on
+   IPv6 due to the scarcity of IPv4 addresses vis-a-vis a rapidly
+   growing number of devices and the use of IPv6 in constrained
+   environments via protocols such as 6LoWPAN.  Although [RFC8520]
+   specifies a DHCPv6 [RFC8415] option that can be used by IPv6 devices
+   for emitting their MUD URL, IPv6 addresses are most commonly assigned
+   via Stateless Address Autoconfiguration (SLAAC) [RFC4862] using the
+   Neighbor Discovery Protocol (NDP) [RFC4861] and not via DHCPv6.  This
+   renders many IoT devices uncapable of using a standardized way for
+   emitting MUD URLs if they are not employing an out-of-band solution
+   such as the emission via a QR code [RFC9238].
+
+   To potentially close this gap, this document proposes a new NDP
+   option which can be used in Router Solicitation (RS) messages.  This
+   enables IPv6 nodes to emit their MUD URLs more easily when using
+   SLAAC.
+
+2.  Option Format
+
+   0                   1
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |      Type     |    Length   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                             |
+   +          MUDstring          |
+   |                             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+   Fields:
+
+   Type:                   TBD1
+
+   Length:                 8-bit unsigned integer. Contains the
+                           length of the MUDstring in octets.
+
+   MUDstring:              String containing a MUD URL as defined
+                           in section 10 of {{RFC8520}}.
+                           MUST NOT exceed 254 Bytes.
+
+                          Figure 1: MUD URL Option
+
+3.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+4.  Security Considerations
+
+   TODO Security
+
+5.  IANA Considerations
+
+   IANA is requested to assign the following new IPv6 Neighbor Discovery
+   Option type in the "IPv6 Neighbor Discovery Option Formats" sub-
+   registry under the "Internet Control Message Protocol version 6
+   (ICMPv6) Parameters" registry.
+
+                +======+================+================+
+                | Type |  Description   |   Reference    |
+                +======+================+================+
+                | TBA1 | MUD URL Option | [ThisDocument] |
+                +------+----------------+----------------+
+
+                                 Table 1
+
+6.  References
+
+6.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC4861]  Narten, T., Nordmark, E., Simpson, W., and H. Soliman,
+              "Neighbor Discovery for IP version 6 (IPv6)", RFC 4861,
+              DOI 10.17487/RFC4861, September 2007,
+              <https://www.rfc-editor.org/rfc/rfc4861>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8520]  Lear, E., Droms, R., and D. Romascanu, "Manufacturer Usage
+              Description Specification", RFC 8520,
+              DOI 10.17487/RFC8520, March 2019,
+              <https://www.rfc-editor.org/rfc/rfc8520>.
+
+6.2.  Informative References
+
+   [RFC4862]  Thomson, S., Narten, T., and T. Jinmei, "IPv6 Stateless
+              Address Autoconfiguration", RFC 4862,
+              DOI 10.17487/RFC4862, September 2007,
+              <https://www.rfc-editor.org/rfc/rfc4862>.
+
+   [RFC8415]  Mrugalski, T., Siodelski, M., Volz, B., Yourtchenko, A.,
+              Richardson, M., Jiang, S., Lemon, T., and T. Winters,
+              "Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
+              RFC 8415, DOI 10.17487/RFC8415, November 2018,
+              <https://www.rfc-editor.org/rfc/rfc8415>.
+
+   [RFC9238]  Richardson, M., Latour, J., and H. Habibi Gharakheili,
+              "Loading Manufacturer Usage Description (MUD) URLs from QR
+              Codes", RFC 9238, DOI 10.17487/RFC9238, May 2022,
+              <https://www.rfc-editor.org/rfc/rfc9238>.
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Author's Address
+
+   Jan Romann
+   University of Bremen
+   Germany
+   Email: jan.romann@uni-bremen.de
