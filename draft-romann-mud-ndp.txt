@@ -59,8 +59,8 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Option Format
-   3.  Conventions and Definitions
+   2.  Conventions and Definitions
+   3.  Option Format
    4.  Security Considerations
    5.  IANA Considerations
    6.  References
@@ -98,7 +98,18 @@ Table of Contents
    enables IPv6 nodes to emit their MUD URLs more easily when using
    SLAAC.
 
-2.  Option Format
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   This document makes use of the terms defined in [RFC8520]].  The
+   following additional terms are used: TBD
+
+3.  Option Format
 
    0                   1
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
@@ -118,18 +129,10 @@ Table of Contents
                            length of the MUDstring in octets.
 
    MUDstring:              String containing a MUD URL as defined
-                           in section 10 of {{RFC8520}}.
+                           in section 10 of RFC 8520.
                            MUST NOT exceed 254 Bytes.
 
                           Figure 1: MUD URL Option
-
-3.  Conventions and Definitions
-
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
 
 4.  Security Considerations
 
@@ -148,7 +151,7 @@ Table of Contents
                 | TBA1 | MUD URL Option | [ThisDocument] |
                 +------+----------------+----------------+
 
-                                 Table 1
+                       Table 1: MUD URL NDP Option
 
 6.  References
 
