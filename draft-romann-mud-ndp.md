@@ -40,14 +40,14 @@ by applying a corresponding firewall configuration that prohibits all traffic.
 MUD nodes are supposed to indicate which MUD file describes them by emitting
 a URL that is processed by a so-called MUD manager.
 
-Devices that operate in Internet of Things (IoT) primarily rely on IPv6 due to
-the scarcity of IPv4 addresses vis-à-vis a rapidly growing number of devices
+Nodes that operate in the Internet of Things (IoT) primarily rely on IPv6 due
+to the scarcity of IPv4 addresses vis-à-vis a rapidly growing number of devices
 and the use of IPv6 in constrained environments via protocols such as 6LoWPAN.
 Although {{!RFC8520}} specifies a DHCPv6 {{?RFC8415}} option that can be used by
-IPv6 devices for emitting their MUD URL, IPv6 addresses are most commonly
-assigned via Stateless Address Autoconfiguration (SLAAC) {{?RFC4862}} using the
-Neighbor Discovery Protocol (NDP) {{!RFC4861}} and not via DHCPv6.
-This renders many IoT devices uncapable of using a standardized way for
+IPv6 devices for emitting their MUD URL, IPv6 addresses are most commonly not
+assigned via DHCPv6, but via Stateless Address Autoconfiguration (SLAAC)
+{{?RFC4862}} using the Neighbor Discovery Protocol (NDP) {{!RFC4861}}.
+This renders many IoT devices incapable of using a standardized way for
 emitting MUD URLs if they are not employing an out-of-band solution such as the
 emission via a QR code {{?RFC9238}}.
 <!-- TODO: Also mention LLDP and X.509 certificates -->
