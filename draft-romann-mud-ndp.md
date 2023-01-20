@@ -29,9 +29,9 @@ IPv6.
 
 --- middle
 
-Note: Everything here is still WIP.
-
 # Introduction
+
+Note: Everything here is still WIP.
 
 Manufacturer Usage Descriptions (MUDs) {{!RFC8520}} can be used to describe
 the kind of network access a device needs in order to properly function.
