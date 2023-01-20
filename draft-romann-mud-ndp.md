@@ -104,6 +104,7 @@ type in the "IPv6 Neighbor Discovery Option Formats" sub-registry under the
 | Type |   Description  |    Reference   |
 |:----:|:--------------:|:--------------:|
 | TBA1 | MUD URL Option | [ThisDocument] |
+{: #tab-ndp-mud-opt title='MUD URL NDP Option' align="center"}
 
 --- back
 
