@@ -160,7 +160,15 @@ Table of Contents
 
 6.  Security Considerations
 
-   TODO Security
+   In general, the security considerations from [RFC8520] also apply to
+   this document.
+
+   Since NDP is not a secure protocol, MUD URLs can get compromised if
+   an attacker performs a man-in-the-middle attack.  To minimize this
+   risk, SEcure Neighbor Discovery (SEND) [RFC3971] SHOULD be used in
+   order to assert the integrity of the emitted MUD URLs.
+
+   TODO: Add more security considerations
 
 7.  IANA Considerations
 
@@ -185,6 +193,11 @@ Table of Contents
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC3971]  Arkko, J., Ed., Kempf, J., Zill, B., and P. Nikander,
+              "SEcure Neighbor Discovery (SEND)", RFC 3971,
+              DOI 10.17487/RFC3971, March 2005,
+              <https://www.rfc-editor.org/rfc/rfc3971>.
 
    [RFC4861]  Narten, T., Nordmark, E., Simpson, W., and H. Soliman,
               "Neighbor Discovery for IP version 6 (IPv6)", RFC 4861,
