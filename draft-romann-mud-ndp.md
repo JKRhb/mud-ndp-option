@@ -63,6 +63,15 @@ This enables IPv6 nodes to emit their MUD URLs more easily when using SLAAC.
 This document makes use of the terms defined in {{!RFC8520}}]. The
    following additional terms are used: TBD
 
+# Node Behavior
+
+Nodes that are described by a MUD file MAY use the NDP option specified in
+{{option-format}} for emitting a MUD URL in Router Solicitations.
+Corresponding with {{Section 10.1 of RFC8520}}, this option MUST NOT be
+repeated.
+Furthermore, if the node also uses DHCPv4 or DHCPv6 to emit its MUD URL,
+the MUD URL options MUST contain the same value.
+
 # Option Format {#option-format}
 
 {{fig-ndp-mud}} specifies the layout of the MUD NDP Option.
