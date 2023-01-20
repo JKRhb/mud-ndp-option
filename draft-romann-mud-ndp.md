@@ -72,6 +72,14 @@ repeated.
 Furthermore, if the node also uses DHCPv4 or DHCPv6 to emit its MUD URL,
 the MUD URL options MUST contain the same value.
 
+# Router Behavior
+
+A router that receives an RS containing a MUD URL option MAY ignore it or
+forward its extracted value to interested entities, such as an external MUD
+manager.
+Routers SHOULD inform these entities about any changes to a node's state and
+their address configuration.
+
 # Option Format {#option-format}
 
 {{fig-ndp-mud}} specifies the layout of the MUD NDP Option.
