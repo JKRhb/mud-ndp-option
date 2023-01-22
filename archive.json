@@ -1,0 +1,83 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-01-22T00:40:13.507712+00:00",
+  "repo": "JKRhb/mud-ndp-option",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOIz2OTM5IMzH6",
+      "title": "Fix document issues",
+      "url": "https://github.com/JKRhb/mud-ndp-option/pull/1",
+      "state": "MERGED",
+      "author": "JKRhb",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-01-20T10:07:16Z",
+      "updatedAt": "2023-01-20T10:12:02Z",
+      "baseRepository": "JKRhb/mud-ndp-option",
+      "baseRefName": "main",
+      "baseRefOid": "f00c7fb67553657a20037e169e3eebf05dca3d3c",
+      "headRepository": "JKRhb/mud-ndp-option",
+      "headRefName": "fix-document",
+      "headRefOid": "42527cd4a1af9dc402a13334dcc032a2f6593462",
+      "closedAt": "2023-01-20T10:11:59Z",
+      "mergedAt": "2023-01-20T10:11:59Z",
+      "mergedBy": "JKRhb",
+      "mergeCommit": {
+        "oid": "328c0df25a3345bd8436cc1e47494b04ab27182a"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
